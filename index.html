@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Life – Mental Health Support & Helpline</title>
+  <meta name="description" content="Happy Life – A calm space for mental health support, mood tracking, resources, and immediate helpline access. You are not alone." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --surface: #ffffff;
+      --primary: #3b82f6;
+      --primary-soft: #dbeafe;
+      --primary-dark: #1d4ed8;
+      --accent: #10b981;
+      --accent-soft: #d1fae5;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --crisis: #ef4444;
+      --crisis-bg: #fef2f2;
+      --radius: 16px;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Nunito', 'Inter', sans-serif;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========== CRISIS BANNER ========== */
+    .crisis-banner {
+      background: linear-gradient(90deg, #fef2f2, #fff1f2);
+      border-bottom: 2px solid #fecaca;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .crisis-banner strong {
+      color: #b91c1c;
+    }
+
+    .crisis-banner a {
+      display: inline-block;
+      background: var(--crisis);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin: 0 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .crisis-banner a:hover {
+      background: #dc2626;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    /* ========== NAV ========== */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 52px;
+      z-index: 900;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-accent:hover {
+      background: #059669;
+      text-decoration: none;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.75rem;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .hero-content h1 span {
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+    }
+
+    .hero-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mood-options {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .mood-btn {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      background: var(--bg);
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mood-btn:hover,
+    .mood-btn.active {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      transform: scale(1.08);
+    }
+
+    .mood-label {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ========== SECTIONS ========== */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ========== FEATURES / DASHBOARD CARDS ========== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .icon-blue { background: var(--primary-soft); }
+    .icon-green { background: var(--accent-soft); }
+    .icon-purple { background: #f3e8ff; }
+    .icon-amber { background: #fef3c7; }
+
+    /* ========== HELPLINES ========== */
+    .helpline-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .helpline-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .helpline-card h3 {
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .helpline-card .number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+
+    .helpline-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      flex-grow: 1;
+    }
+
+    /* ========== RESOURCES ========== */
+    .resource-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .resource-item {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      transition: border-color 0.2s;
+    }
+
+    .resource-item:hover {
+      border-color: var(--primary);
+    }
+
+    .resource-item .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .resource-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 2px;
+    }
+
+    .resource-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ========== QUICK TOOLS ========== */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .tool-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .tool-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+      transform: translateY(-2px);
+    }
+
+    .tool-btn .emoji {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .tool-btn span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 48px 24px 32px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand h3 {
+      color: white;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 0.95rem;
+      max-width: 360px;
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #1e293b;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .disclaimer {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ========== MODAL (Breathing / Journal) ========== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      position: relative;
+    }
+
+    .modal h3 {
+      margin-bottom: 8px;
+    }
+
+    .modal p {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-modal:hover {
+      background: var(--bg);
+    }
+
+    /* Breathing circle */
+    .breath-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      animation: none;
+    }
+
+    .breath-circle.animate {
+      animation: breathe 8s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+    }
+
+    /* Journal */
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: vertical;
+      margin-bottom: 16px;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-soft);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+        gap: 32px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.1rem;
+      }
+
+      nav {
+        top: 60px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .mood-options {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 6px;
+      }
+
+      .mood-btn {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .crisis-banner {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+      }
+
+      .crisis-banner a {
+        margin: 4px 2px;
+        padding: 5px 12px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== CRISIS BANNER ========== -->
+  <div class="crisis-banner">
+    <strong>Need help right now?</strong>
+    You are not alone.
+    <a href="tel:988">Call 988 (US)</a>
+    <a href="https://www.iasp.info/suicidalthoughts/" target="_blank" rel="noopener">Find local helpline</a>
+  </div>
+
+  <!-- ========== NAV ========== -->
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-icon">♥</div>
+      Happy Life
+    </a>
+    <div class="nav-links">
+      <a href="#features">Support</a>
+      <a href="#helplines">Helplines</a>
+      <a href="#resources">Resources</a>
+      <a href="#tools">Tools</a>
+    </div>
+    <a href="#helplines" class="btn btn-primary">Get Help Now</a>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>You matter.<br><span>Help is here.</span></h1>
+      <p>
+        Happy Life is a calm space for support, self-check-ins, and connection to real people who care.
+        Take one gentle step at a time.
+      </p>
+      <div class="hero-actions">
+        <a href="#helplines" class="btn btn-primary">Talk to someone</a>
+        <a href="#tools" class="btn btn-outline">Try a calm tool</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>How are you feeling right now?</h3>
+      <div class="mood-options" id="moodOptions">
+        <div>
+          <button class="mood-btn" data-mood="1" title="Very low">😔</button>
+          <div class="mood-label">Low</div>
+        </div>
+        <div>
+          <button class="mood-btn" data-mood="2" title="Down">😕</button>
+          <div class="mood-label">Down</div>
+        </div>
+        <div>
+          <button class="mood-btn" data-mood="3" title="Okay">😐</button>
+          <div class="mood-label">Okay</div>
+        </div>
+        <div>
+          <button class="mood-btn" data-mood="4" title="Good">🙂</button>
+          <div class="mood-label">Good</div>
+        </div>
+        <div>
+          <button class="mood-btn" data-mood="5" title="Great">😊</button>
+          <div class="mood-label">Great</div>
+        </div>
+      </div>
+      <p id="moodFeedback" style="font-size: 0.9rem; color: var(--text-muted); min-height: 24px;"></p>
+      <button class="btn btn-accent" style="width: 100%; margin-top: 8px;" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'})">
+        Continue with support →
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section id="features">
+    <div class="section-header">
+      <h2>Gentle support, always available</h2>
+      <p>Simple tools and real resources designed to help you feel a little lighter.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">💬</div>
+        <h3>Talk to someone</h3>
+        <p>Connect with trained helpline supporters 24/7. You don’t have to go through this alone.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-green">🌱</div>
+        <h3>Mood check-ins</h3>
+        <p>Track how you feel over time in a private, judgment-free space. Small awareness can help.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">🧘</div>
+        <h3>Calm tools</h3>
+        <p>Guided breathing, short grounding exercises, and a private journal when you need a moment.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon icon-amber">📚</div>
+        <h3>Helpful resources</h3>
+        <p>Trusted articles, videos, and guides about anxiety, low mood, sleep, and self-care.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== HELPLINES ========== -->
+  <section id="helplines" style="background: linear-gradient(180deg, #eff6ff 0%, var(--bg) 100%); border-radius: 24px; margin: 0 16px;">
+    <div class="section-header">
+      <h2>Immediate help is available</h2>
+      <p>These services are free, confidential, and staffed by trained people who want to help.</p>
+    </div>
+    <div class="helpline-grid">
+      <div class="helpline-card">
+        <h3>🇺🇸 United States</h3>
+        <div class="number">988</div>
+        <p>Suicide & Crisis Lifeline – 24/7 call, text, or chat. Free and confidential.</p>
+        <a href="tel:988" class="btn btn-primary" style="align-self: flex-start;">Call 988</a>
+      </div>
+      <div class="helpline-card">
+        <h3>🌍 International</h3>
+        <div class="number">Find local help</div>
+        <p>Directory of crisis centers and suicide prevention resources around the world.</p>
+        <a href="https://www.iasp.info/suicidalthoughts/" target="_blank" rel="noopener" class="btn btn-primary" style="align-self: flex-start;">Visit IASP</a>
+      </div>
+      <div class="helpline-card">
+        <h3>💬 Crisis Text Line</h3>
+        <div class="number">Text HOME to 741741</div>
+        <p>US & Canada – Free 24/7 text support from trained crisis counselors.</p>
+        <a href="sms:741741&body=HOME" class="btn btn-primary" style="align-self: flex-start;">Text now</a>
+      </div>
+      <div class="helpline-card">
+        <h3>🇮🇳 India</h3>
+        <div class="number">9152987821</div>
+        <p>AASRA – 24/7 helpline for those in emotional distress or feeling suicidal.</p>
+        <a href="tel:9152987821" class="btn btn-primary" style="align-self: flex-start;">Call AASRA</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUICK TOOLS ========== -->
+  <section id="tools">
+    <div class="section-header">
+      <h2>Quick calm tools</h2>
+      <p>Simple exercises you can do right now. No account needed.</p>
+    </div>
+    <div class="tools-grid">
+      <button class="tool-btn" onclick="openBreathing()">
+        <span class="emoji">🌬️</span>
+        <span>Breathing exercise</span>
+      </button>
+      <button class="tool-btn" onclick="openJournal()">
+        <span class="emoji">📝</span>
+        <span>Private journal</span>
+      </button>
+      <button class="tool-btn" onclick="openGrounding()">
+        <span class="emoji">🌍</span>
+        <span>5-4-3-2-1 Grounding</span>
+      </button>
+      <button class="tool-btn" onclick="window.location.href='#helplines'">
+        <span class="emoji">🤝</span>
+        <span>Talk to someone</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========== RESOURCES ========== -->
+  <section id="resources">
+    <div class="section-header">
+      <h2>Helpful resources</h2>
+      <p>Trusted information and gentle guidance.</p>
+    </div>
+    <div class="resource-list">
+      <a href="https://www.nimh.nih.gov/health/topics/suicide-prevention" target="_blank" rel="noopener" class="resource-item">
+        <div class="icon">🛡️</div>
+        <div>
+          <h4>Suicide Prevention (NIMH)</h4>
+          <p>Evidence-based information from the National Institute of Mental Health.</p>
+        </div>
+      </a>
+      <a href="https://www.iasp.info/" target="_blank" rel="noopener" class="resource-item">
+        <div class="icon">🌐</div>
+        <div>
+          <h4>International Association for Suicide Prevention</h4>
+          <p>Global resources, research, and local support directories.</p>
+        </div>
+      </a>
+      <a href="https://www.mentalhealth.gov/" target="_blank" rel="noopener" class="resource-item">
+        <div class="icon">💙</div>
+        <div>
+          <h4>MentalHealth.gov</h4>
+          <p>US government resources on mental health conditions and finding help.</p>
+        </div>
+      </a>
+      <a href="https://www.who.int/health-topics/mental-health" target="_blank" rel="noopener" class="resource-item">
+        <div class="icon">🏥</div>
+        <div>
+          <h4>World Health Organization – Mental Health</h4>
+          <p>Global perspective, facts, and guidance on mental well-being.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>♥ Happy Life</h3>
+        <p>
+          A calm space dedicated to mental health support and connecting people with real help.
+          You are valued. You are not alone.
+        </p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick links</h4>
+        <a href="#helplines">Helplines</a>
+        <a href="#tools">Calm tools</a>
+        <a href="#resources">Resources</a>
+        <a href="#features">About support</a>
+      </div>
+      <div class="footer-links">
+        <h4>Important</h4>
+        <a href="https://www.iasp.info/suicidalthoughts/" target="_blank" rel="noopener">Find local help</a>
+        <a href="tel:988">US: Call 988</a>
+        <a href="#">Privacy (coming soon)</a>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Important disclaimer:</strong> Happy Life provides information and self-help tools only.
+      It is not a substitute for professional medical advice, diagnosis, or treatment.
+      If you are in crisis or thinking about harming yourself, please contact emergency services
+      or a crisis helpline immediately (e.g. 988 in the US).
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Happy Life – Made with care for mental well-being.
+    </div>
+  </footer>
+
+  <!-- ========== MODALS ========== -->
+  <!-- Breathing -->
+  <div class="modal-overlay" id="breathingModal">
+    <div class="modal">
+      <button class="close-modal" onclick="closeModal('breathingModal')">×</button>
+      <h3>Breathing exercise</h3>
+      <p>Follow the circle. Breathe in as it grows, out as it shrinks.</p>
+      <div class="breath-circle" id="breathCircle">Breathe</div>
+      <button class="btn btn-primary" id="breathToggle" onclick="toggleBreathing()">Start</button>
+    </div>
+  </div>
+
+  <!-- Journal -->
+  <div class="modal-overlay" id="journalModal">
+    <div class="modal">
+      <button class="close-modal" onclick="closeModal('journalModal')">×</button>
+      <h3>Private journal</h3>
+      <p>Write anything on your mind. This stays only in your browser.</p>
+      <textarea id="journalText" placeholder="How are you feeling? What’s on your mind today..."></textarea>
+      <button class="btn btn-primary" onclick="saveJournal()">Save locally</button>
+      <p id="journalSaved" style="font-size: 0.85rem; color: var(--accent); margin-top: 10px; display: none;">Saved in this browser ✓</p>
+    </div>
+  </div>
+
+  <!-- Grounding -->
+  <div class="modal-overlay" id="groundingModal">
+    <div class="modal">
+      <button class="close-modal" onclick="closeModal('groundingModal')">×</button>
+      <h3>5-4-3-2-1 Grounding</h3>
+      <p style="text-align: left; margin-bottom: 20px;">
+        Look around and gently notice:<br><br>
+        <strong>5</strong> things you can <em>see</em><br>
+        <strong>4</strong> things you can <em>touch</em><br>
+        <strong>3</strong> things you can <em>hear</em><br>
+        <strong>2</strong> things you can <em>smell</em><br>
+        <strong>1</strong> thing you can <em>taste</em>
+      </p>
+      <p style="font-size: 0.9rem; color: var(--text-muted);">
+        Take your time. This helps bring you back to the present moment.
+      </p>
+      <button class="btn btn-primary" onclick="closeModal('groundingModal')">I’m done</button>
+    </div>
+  </div>
+
+  <script>
+    // Mood selection
+    const moodBtns = document.querySelectorAll('.mood-btn');
+    const moodFeedback = document.getElementById('moodFeedback');
+    const messages = {
+      1: "Thank you for sharing. You’re not alone — support is available right now.",
+      2: "It’s okay to feel this way. Small steps and talking to someone can help.",
+      3: "Thanks for checking in. You’re doing something kind for yourself.",
+      4: "Glad you’re feeling okay. Keep taking care of yourself.",
+      5: "Wonderful to hear. Remember you can return here anytime."
+    };
+
+    moodBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        moodBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const mood = btn.dataset.mood;
+        moodFeedback.textContent = messages[mood];
+      });
+    });
+
+    // Modals
+    function openBreathing() {
+      document.getElementById('breathingModal').classList.add('active');
+    }
+    function openJournal() {
+      document.getElementById('journalModal').classList.add('active');
+      const saved = localStorage.getItem('happyLifeJournal');
+      if (saved) document.getElementById('journalText').value = saved;
+    }
+    function openGrounding() {
+      document.getElementById('groundingModal').classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      // Stop breathing animation if open
+      if (id === 'breathingModal') {
+        document.getElementById('breathCircle').classList.remove('animate');
+        document.getElementById('breathToggle').textContent = 'Start';
+        document.getElementById('breathCircle').textContent = 'Breathe';
+      }
+    }
+
+    // Breathing
+    let breathing = false;
+    function toggleBreathing() {
+      const circle = document.getElementById('breathCircle');
+      const btn = document.getElementById('breathToggle');
+      breathing = !breathing;
+      if (breathing) {
+        circle.classList.add('animate');
+        btn.textContent = 'Stop';
+        circle.textContent = 'In… Out…';
+      } else {
+        circle.classList.remove('animate');
+        btn.textContent = 'Start';
+        circle.textContent = 'Breathe';
+      }
+    }
+
+    // Journal
+    function saveJournal() {
+      const text = document.getElementById('journalText').value;
+      localStorage.setItem('happyLifeJournal', text);
+      const msg = document.getElementById('journalSaved');
+      msg.style.display = 'block';
+      setTimeout(() => msg.style.display = 'none', 2500);
+    }
+
+    // Close modal on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
